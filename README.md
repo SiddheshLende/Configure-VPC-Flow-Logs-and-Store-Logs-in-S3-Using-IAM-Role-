@@ -15,6 +15,7 @@ Step 1: Create an S3 Bucket
 2. Navigate to the S3 service in the AWS Console.  
 3. Click Create bucket.  
 4. Provide a unique bucket name (e.g., vpc-flow-logs-bucket-your-id) and choose your preferred AWS Region.  
+
 Step 2: Create an IAM Role
 Create an IAM role that the VPC Flow Logs service can assume to write logs to your S3 bucket.
 1. Go to the IAM service and click Roles, then Create role.  
