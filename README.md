@@ -19,4 +19,17 @@ Step 1: Create an S3 Bucket
 Step 2: Create an IAM Role
 Create an IAM role that the VPC Flow Logs service can assume to write logs to your S3 bucket.
 1. Go to the IAM service and click Roles, then Create role.  
-2. Choose Custom trust policy and paste the following JSON:  
+2. Choose Custom trust policy and paste the following JSON:
+   {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}  
+
