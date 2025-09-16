@@ -10,8 +10,8 @@ An active AWS account.
 Basic understanding of AWS services, including VPC, S3, and IAM.
 An existing VPC to monitor (or create a new one).
 # Step-by-Step Setup Instructions
-Step 1: Create an S3 Bucket
-Create a new S3 bucket to store the log files.
-Navigate to the S3 service in the AWS Console.
-Click Create bucket.
+Step 1: Create an S3 Bucket  
+Create a new S3 bucket to store the log files.  
+Navigate to the S3 service in the AWS Console.  
+Click Create bucket.  
 Provide a unique bucket name (e.g., vpc-flow-logs-bucket-your-id) and choose your preferred AWS Region.
