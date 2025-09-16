@@ -22,7 +22,7 @@ Create an IAM role that the VPC Flow Logs service can assume to write logs to yo
 2. Choose Custom trust policy and paste the following JSON: (json_policy1)
 3. Click Next.
 4. On the "Add permissions" page, click Create policy.
-5. In the new tab, paste the following permissions policy, replacing the bucket name:
+5. In the new tab, paste the following permissions policy, replacing the bucket name: (json_policy2)
 6. Name the policy (e.g., vpc-flow-logs-s3-write-policy) and create it.
 7. Return to the role creation tab, refresh the policies list, and attach the newly created policy to your role.
 8. Name the role (e.g., VPCFlowLogsRole) and create it.
