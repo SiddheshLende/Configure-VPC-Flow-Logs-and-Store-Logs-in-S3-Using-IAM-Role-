@@ -20,16 +20,24 @@ Step 2: Create an IAM Role
 Create an IAM role that the VPC Flow Logs service can assume to write logs to your S3 bucket.
 1. Go to the IAM service and click Roles, then Create role.  
 2. Choose Custom trust policy and paste the following JSON:
-   {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "vpc-flow-logs.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}  
+3. Click Next.
+4. On the "Add permissions" page, click Create policy.
+5. In the new tab, paste the following permissions policy, replacing the bucket name:
+6. Name the policy (e.g., vpc-flow-logs-s3-write-policy) and create it.
+7. Return to the role creation tab, refresh the policies list, and attach the newly created policy to your role.
+8. Name the role (e.g., VPCFlowLogsRole) and create it.
 
+Step 3: Enable VPC Flow Logs  
+Enable flow logs on your VPC, pointing them to the S3 bucket and IAM role.  
+1. Go to the VPC service.
+2. Select Your VPCs, then choose the VPC you want to monitor.
+3. Go to the Flow Logs tab and click Create flow log.
+4. Set the Destination to S3 bucket, and enter the S3 bucket ARN.
+5. Select the IAM role you created from the dropdown menu.
+6. Click Create flow log.
+
+#Verification
+To verify that the setup is working: 
+1. Generate some network traffic within your VPC (e.g., by launching an EC2 instance or connecting to an existing one).  
+2. After a few minutes, check your S3 bucket. You should see new folders with a structured path like s3://vpc-flow-logs-bucket/AWSLogs/<account-id>/....
+3. Download and open a .gz file. The log entries will be space-separated and contain information about the network traffic, including source/destination IPs, ports, and the action taken (ACCEPT or REJECT).  
